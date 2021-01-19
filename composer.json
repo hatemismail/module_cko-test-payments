@@ -1,6 +1,6 @@
 {
-    "name": "cko-by-hatem/test-payments",
-    "description": "Checkout Payments Gateway, by. Hatem Ismail",
+    "name": "cko/test-payments",
+    "description": "CheckoutCom Payments Gateway, by. Hatem Ismail",
     "config": {
         "sort-packages": true
     },

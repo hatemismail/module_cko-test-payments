@@ -89,7 +89,7 @@ class PaymentManagement implements \Cko\Test\Api\PaymentManagementInterface
 
         $httpAdapter = $this->curl->create();
         $payload = [
-            //'reference' => '',
+            'reference' => 'hatem_ismail_cko_mage',
             'source' => [
                 'type' => 'token',
                 'token' => $ckoToken,
