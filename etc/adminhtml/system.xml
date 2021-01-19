@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 CKO By. [Hatem Ismail]. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="cko_test" translate="label" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cko Test Payments (CheckoutCom)</label>
+                <attribute type="displayIn">other_payment_methods</attribute>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <requires>
+                        <group id="cko_test_required"/>
+                    </requires>
+                </field>
+                <group id="required" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="15">
+                    <label>Basic Cko Test Settings</label>
+                    <attribute type="expanded">1</attribute>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
+                    <field id="title" translate="label" type="text" sortOrder="10" showInDefault="10" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Title</label>
+                        <config_path>payment/cko_test/title</config_path>
+                    </field>
+                    <field id="service_name" translate="label" type="text" sortOrder="10" showInDefault="10" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Service Name</label>
+                        <config_path>payment/cko_test/service_name</config_path>
+                    </field>
+                    <field id="service_description" translate="label" type="text" sortOrder="10" showInDefault="10" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Service Description</label>
+                        <config_path>payment/cko_test/service_description</config_path>
+                    </field>
+                    <field id="environment" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Environment</label>
+                        <source_model>Cko\Test\Model\Adminhtml\Source\Environment</source_model>
+                        <config_path>payment/cko_test/environment</config_path>
+                    </field>
+                    <field id="payment_action" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Payment Action</label>
+                        <source_model>Cko\Test\Model\Adminhtml\Source\PaymentAction</source_model>
+                        <config_path>payment/cko_test/payment_action</config_path>
+                    </field>
+                    <field id="cko_secret_key" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Secret Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>payment/cko_test/cko_secret_key</config_path>
+                        <validate>required-entry</validate>
+                        <depends>
+                            <field id="*/cko_test/active">1</field>
+                        </depends>
+                    </field>
+                    <field id="cko_public_key" translate="label" type="obscure" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Public Key</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>payment/cko_test/cko_public_key</config_path>
+                        <validate>required-entry</validate>
+                        <depends>
+                            <field id="*/cko_test/active">1</field>
+                        </depends>
+                    </field>
+                </group>
+                <group id="advanced" translate="label" showInDefault="1" showInWebsite="1" showInStore="0" sortOrder="20">
+                    <label>Advanced Settings</label>
+                    <attribute type="expanded">0</attribute>
+                    <field id="currency" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Accepted Currency</label>
+                        <source_model>Magento\Config\Model\Config\Source\Locale\Currency</source_model>
+                        <config_path>payment/cko_test/currency</config_path>
+                    </field>
+                    <field id="debug" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Debug</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/cko_test/debug</config_path>
+                    </field>
+                    <field id="allowspecific" translate="label" type="allowspecific" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                        <label>Payment from Applicable Countries</label>
+                        <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                        <config_path>payment/cko_test/allowspecific</config_path>
+                    </field>
+                    <field id="specificcountry" translate="label" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Payment from Specific Countries</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <config_path>payment/cko_test/specificcountry</config_path>
+                    </field>
+                    <field id="min_order_total" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Minimum Order Total</label>
+                        <config_path>payment/cko_test/min_order_total</config_path>
+                        <validate>validate-number validate-zero-or-greater</validate>
+                    </field>
+                    <field id="max_order_total" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Maximum Order Total</label>
+                        <config_path>payment/cko_test/max_order_total</config_path>
+                        <validate>validate-number validate-zero-or-greater</validate>
+                    </field>
+                    <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Sort Order</label>
+                        <frontend_class>validate-number</frontend_class>
+                        <config_path>payment/cko_test/sort_order</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

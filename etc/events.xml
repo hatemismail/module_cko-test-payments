@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 CKO By. [Hatem Ismail]. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_method_assign_data_cko_test">
+        <observer name="cko_test_gateway_data_assign" instance="Cko\Test\Observer\DataAssignObserver" />
+    </event>
+</config>

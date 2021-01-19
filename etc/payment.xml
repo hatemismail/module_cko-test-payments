@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 CKO By. [Hatem Ismail]. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <methods>
+        <method name="cko_test">
+            <allow_multiple_address>0</allow_multiple_address>
+            <can_capture>1</can_capture>
+            <can_capture_partial>0</can_capture_partial>
+            <can_authorize_vault>1</can_authorize_vault>
+            <can_capture_vault>1</can_capture_vault>
+            <can_use_internal>1</can_use_internal>
+            <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+            <can_refund>1</can_refund>
+            <can_void>1</can_void>
+            <can_cancel>1</can_cancel>
+        </method>
+    </methods>
+</payment>

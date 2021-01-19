@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © 2021 CKO By. [Hatem Ismail]. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Cko\Test\Block\Payment $block */
+?>
+<script>
+    //<![CDATA[
+    require(
+        [
+            'Cko_Test/js/cko',
+            'jquery',
+            'domReady!'
+        ], function(CkoTest, $) {
+            var config = <?= /* @noEscape */ $block->getPaymentConfig() ?>,
+                form = $('#payment_form_<?= /* @noEscape */ $block->escapeJs($block->escapeHtml($block->getMethodCode())) ?>');
+
+            config.active = form.length > 0 && !form.is(':hidden');
+            new CkoTest(config);
+        });
+    //]]>
+</script>

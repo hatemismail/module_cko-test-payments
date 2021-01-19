@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2021 CKO By. [Hatem Ismail]. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/error_mapping.xsd">
+    <message_list>
+        <message code="1" translate="true">Success</message>
+        <message code="2" translate="true">Error parsing JSON</message>
+        <message code="3" translate="true">Missing required parameters</message>
+        <message code="4" translate="true">Invalid username or password</message>
+        <message code="5" translate="true">Bill already exist</message>
+        <message code="6" translate="true">Bill Already Paid</message>
+        <message code="7" translate="true">Invalid parameter value</message>
+    </message_list>
+</mapping>
